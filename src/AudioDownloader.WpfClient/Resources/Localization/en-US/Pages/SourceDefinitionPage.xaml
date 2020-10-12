@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:local="clr-namespace:AudioDownloader.WpfClient">
+
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_AudioLinkLabel}">YouTube Link</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_AudioLinkInfo}">Link to YouTube video from which to extract the audio. Example: https://www.youtube.com/watch?v=ajeCEr-SRac</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_DownloadButton}">Download</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_CancelButton}">Stop Downloading</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_DownloadingLabel}">Downloading</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ConvertingLabel}">is being converted to MP3</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_CancellationProcessError}">Couldn't cancel the download process: {0}</system:String>
+
+</ResourceDictionary>

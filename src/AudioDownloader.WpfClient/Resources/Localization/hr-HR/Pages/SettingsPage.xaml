@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:local="clr-namespace:AudioDownloader.WpfClient">
+
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_LanguageLabel}">Jezik</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationLabel}">Lokacija za preuzimanje videa</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationInfo}">Lokacija gdje će se video preuzeti prije pretvaranja u mp3 datoteku</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryButtonToolTip}">Odabir lokacije gdje će se videi preuzimati</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadLabel}">Izbriši video nakon preuzimanja</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadInfo}">Želite li da se video obriše nakon što se preuzme i pretvori u mp3 datoteku?</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_AudioDownloadLocationLabel}">Lokacija za audio</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_AudioDownloadLocationInfo}">Lokacija gdje će se audio datoteke spremati nakon pretvaranja u mp3 (i skraćivanja)</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickAudioDownloadDirectoryButtonToolTip}">Odabir lokacije gdje će se audio datoteke spremati</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingLabel}">Obriši izvornu audio datoteku</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingInfo}">Želite li da se obriše izvorna audio datoteka nakon što je skraćena i takva spremljena u novu datoteku?</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_BackToPreviousPageButtonToolTip}">Povratak na prethodnu stranicu</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryTitle}">Odaberite mapu gdje će se videi preuzimati</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickAudioDownloadDirectoryTitle}">Odaberite mapu gdje će se glazba pohranjivati</system:String>
+
+</ResourceDictionary>

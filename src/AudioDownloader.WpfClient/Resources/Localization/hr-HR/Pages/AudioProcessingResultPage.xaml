@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:local="clr-namespace:AudioDownloader.WpfClient">
+
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioProcessingResult_ProcessingResultLabel}">Završeno procesiranje</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioProcessingResult_DoAnotherButton}">Pretvori još jedan</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioProcessingResult_OpenFileButton}">Otvori audio datoteku</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioProcessingResult_OpenContainingDirectoryButton}">Otvori mapu s datotekom</system:String>
+
+</ResourceDictionary>

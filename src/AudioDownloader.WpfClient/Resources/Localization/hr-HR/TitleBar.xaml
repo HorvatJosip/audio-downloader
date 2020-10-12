@@ -1,0 +1,9 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+	<system:String x:Key="{x:Static controls:ResourceKeys.TitleBarSettingsButtonToolTip}">Postavke aplikacije</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.TitleBarMinimizeButtonToolTip}">Spusti prozor</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.TitleBarMaximizeButtonToolTip}">Maksimiziraj veličinu prozora</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.TitleBarRestoreButtonToolTip}">Povrati veličinu prozora</system:String>
+</ResourceDictionary>

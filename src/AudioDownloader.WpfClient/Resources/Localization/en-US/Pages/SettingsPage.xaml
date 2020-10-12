@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:local="clr-namespace:AudioDownloader.WpfClient">
+
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_LanguageLabel}">Language</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationLabel}">Video Download Location</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationInfo}">Location where the videos will be downloaded before conversion to MP3</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryButtonToolTip}">Choose a location for downloading videos</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadLabel}">Delete Video After Download</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadInfo}">Should the videos that are downloaded for converting to mp3 be deleted after conversion?</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_AudioDownloadLocationLabel}">Audio Location</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_AudioDownloadLocationInfo}">Location where the audio files will be placed after being converted (and split)</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickAudioDownloadDirectoryButtonToolTip}">Choose a location for saving audio files</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingLabel}">Delete the Original (Source) Audio File</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingInfo}">Should the source audio file be deleted after it was used to create a split audio file?</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_BackToPreviousPageButtonToolTip}">Back to Previous Page</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryTitle}">Pick the directory where the videos will be downloaded</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickAudioDownloadDirectoryTitle}">Pick the directory where the audio will be stored</system:String>
+
+</ResourceDictionary>

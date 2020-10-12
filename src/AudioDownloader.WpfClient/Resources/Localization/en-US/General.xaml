@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+					xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls">
+
+	<system:String x:Key="{x:Static controls:ResourceKeys.ApplicationName}">Audio Downloader</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.ApplicationCloseToolTip}">Close the Application</system:String>
+	
+	<system:String x:Key="{x:Static controls:ResourceKeys.WindowCloseToolTip}">Close the Window</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.WindowPreviousPageButtonToolTip}">Return to previous page</system:String>
+
+</ResourceDictionary>

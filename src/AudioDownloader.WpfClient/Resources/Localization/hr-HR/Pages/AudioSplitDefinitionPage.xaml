@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:local="clr-namespace:AudioDownloader.WpfClient">
+
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameLabel}">Naziv datoteke</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameInfo}">Naziv koji želite koristiti za datoteku</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_HeadingButtonToolTip}">Naziv datoteke zapiši u stilu naslova (npr. "NEKI NASLOV" bi postao "Neki Naslov")</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeLabel}">Početno vrijeme</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeInfo}">Kad audio datoteka treba započeti</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_PlayButton}">Započni glazbu</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_PauseButton}">Pauziraj glazbu</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_ReplayButton}">Pokreni ispočetka</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeLabel}">Završno vrijeme</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeInfo}">Kad audio datoteka treba završiti</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_SplitSectionsLabel}">Ostali dijelovi</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_SplitSectionsInfo}">Ako želite odrezati još neke dijelove audija, specificirajte te dijelove ovdje.</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_RemoveSplitSectionButton}">Ukloni dio</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_AddSplitSectionButton}">Dodaj još jedan dio</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_SplitButton}">Izreži</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_SkipButton}">Preskoči</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_SplittingLabel}">Režem...</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_CurrentCultureError}">Greška pri određivanju trenutnog jezika...</system:String>
+
+</ResourceDictionary>

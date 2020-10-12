@@ -1,0 +1,95 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>sing.ico</ApplicationIcon>
+    <AssemblyName>Audio Downloader</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\Cancel.svg" />
+    <None Remove="Resources\Images\Close.svg" />
+    <None Remove="Resources\Images\Directory.svg" />
+    <None Remove="Resources\Images\Down.svg" />
+    <None Remove="Resources\Images\Heading.svg" />
+    <None Remove="Resources\Images\Logo" />
+    <None Remove="Resources\Images\Maximize.svg" />
+    <None Remove="Resources\Images\Minimize.svg" />
+    <None Remove="Resources\Images\Minus.svg" />
+    <None Remove="Resources\Images\Pause.svg" />
+    <None Remove="Resources\Images\Play.svg" />
+    <None Remove="Resources\Images\Plus.svg" />
+    <None Remove="Resources\Images\PreviousPage.svg" />
+    <None Remove="Resources\Images\QuestionMark.svg" />
+    <None Remove="Resources\Images\Replay.svg" />
+    <None Remove="Resources\Images\Restore.svg" />
+    <None Remove="Resources\Images\Settings.svg" />
+    <None Remove="Resources\Images\Volume.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Braco.Services.Media" Version="0.2.1" />
+    <PackageReference Include="Braco.Utilities.Wpf.Controls" Version="0.7.1" />
+    <PackageReference PrivateAssets="All" Include="PropertyChanged.Fody" Version="3.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Minus.svg" />
+    <Resource Include="Resources\Images\Plus.svg" />
+    <Resource Include="Resources\Images\PreviousPage.svg" />
+    <Resource Include="Resources\Images\Cancel.svg" />
+    <Resource Include="Resources\Images\Close.svg" />
+    <Resource Include="Resources\Images\Directory.svg" />
+    <Resource Include="Resources\Images\Down.svg" />
+    <Resource Include="Resources\Images\Heading.svg" />
+    <Resource Include="Resources\Images\Logo" />
+    <Resource Include="Resources\Images\Maximize.svg" />
+    <Resource Include="Resources\Images\Minimize.svg" />
+    <Resource Include="Resources\Images\Pause.svg" />
+    <Resource Include="Resources\Images\Play.svg" />
+    <Resource Include="Resources\Images\QuestionMark.svg" />
+    <Resource Include="Resources\Images\Replay.svg" />
+    <Resource Include="Resources\Images\Restore.svg" />
+    <Resource Include="Resources\Images\Settings.svg" />
+    <Resource Include="Resources\Images\Volume.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Resources\Localization\en-US\MediaServices.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\en-US\Pages\AudioProcessingResultPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\en-US\Pages\AudioSplitDefinitionPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\en-US\Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\hr-HR\MediaServices.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\hr-HR\Pages\AudioSplitDefinitionPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\hr-HR\Pages\AudioProcessingResultPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\hr-HR\Pages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\Localization\hr-HR\Pages\SourceDefinitionPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

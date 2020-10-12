@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:local="clr-namespace:AudioDownloader.WpfClient">
+
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_AudioLinkLabel}">YouTube Link</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_AudioLinkInfo}">Link na YouTube video iz kojeg želite izvući audio. Primjer: https://www.youtube.com/watch?v=ajeCEr-SRac</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_DownloadButton}">Preuzmi</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_CancelButton}">Prekini preuzimanje</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_DownloadingLabel}">Preuzimam</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ConvertingLabel}">se prebacuje u MP3</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_CancellationProcessError}">Dogodila se greška pri prekidu preuzimanja: {0}</system:String>
+
+</ResourceDictionary>

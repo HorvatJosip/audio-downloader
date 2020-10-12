@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+					xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls">
+
+	<system:String x:Key="{x:Static controls:ResourceKeys.ApplicationName}">Skidatelj glazbe</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.ApplicationCloseToolTip}">Ugasi aplikaciju</system:String>
+	
+	<system:String x:Key="{x:Static controls:ResourceKeys.WindowCloseToolTip}">Zatvori prozor</system:String>
+	<system:String x:Key="{x:Static controls:ResourceKeys.WindowPreviousPageButtonToolTip}">Vrati se na prethodnu stranicu</system:String>
+
+</ResourceDictionary>

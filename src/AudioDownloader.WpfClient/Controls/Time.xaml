@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="AudioDownloader.WpfClient.Time"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utils="clr-namespace:Braco.Utilities.Wpf;assembly=Braco.Utilities.Wpf" d:DesignHeight="450"
+             d:DesignWidth="800" mc:Ignorable="d">
+	<StackPanel>
+		<controls:InputField Info="{utils:RelativeBinding Info}" Label="{utils:RelativeBinding Label}">
+			<TextBox Text="{utils:TwoWayBinding TimeDisplay, {x:Type UserControl}}" />
+		</controls:InputField>
+
+		<Border Padding="0 10" />
+
+		<Slider LargeChange="{utils:RelativeBinding LargeSliderChange}"
+		        Maximum="{utils:RelativeBinding TimeValueMaximum}"
+		        Minimum="0"
+		        SmallChange="{utils:RelativeBinding SmallSliderChange}"
+		        Value="{utils:TwoWayBinding TimeValue, {x:Type UserControl}}" />
+	</StackPanel>
+</UserControl>

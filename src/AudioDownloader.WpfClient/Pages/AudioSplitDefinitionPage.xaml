@@ -1,0 +1,152 @@
+﻿<utils:BasePage x:Class="AudioDownloader.WpfClient.AudioSplitDefinitionPage"
+                x:TypeArguments="local:AudioSplitDefinitionPageViewModel"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls"
+                xmlns:local="clr-namespace:AudioDownloader.WpfClient"
+                xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+                xmlns:utils="clr-namespace:Braco.Utilities.Wpf;assembly=Braco.Utilities.Wpf">
+	<Grid>
+		<controls:BracoGrid Rows="4xAuto" SpacedRows="AroundAndBetween" Visibility="{Binding IsConfiguring, Converter={utils:BoolToVisibilityConverter}}">
+			<!-- File Name -->
+			<controls:InputField Grid.Row="1" Width="800"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameLabel}}">
+				<controls:BracoGrid Columns="Auto, *, Auto">
+					<controls:ImageButton Command="{Binding NormalizeTitleCommand}" FileName="{x:Static local:ResourceKeys.HeadingIcon}" ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_HeadingButtonToolTip}}" />
+
+					<TextBox Grid.Column="1" Text="{utils:TwoWayBinding AudioTitle}" />
+
+					<TextBlock Grid.Column="2" VerticalAlignment="Center" Text=".mp3" />
+				</controls:BracoGrid>
+			</controls:InputField>
+
+			<!-- Start Section | Audio Controls | End Section -->
+			<controls:BracoGrid Grid.Row="3" Width="800" HorizontalAlignment="Center"
+			                    Columns="250, *, 250">
+				<!-- Start Section -->
+				<local:Time Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeInfo}}"
+				            Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeLabel}}"
+				            TimeDisplay="{utils:TwoWayBinding StartEndRange.Start.Display}"
+				            TimeValue="{utils:TwoWayBinding StartEndRange.Start.Value}"
+				            TimeValueMaximum="{Binding SliderMaximum}" />
+
+				<!-- Audio Controls -->
+				<Border Grid.Column="1" Padding="30">
+					<StackPanel>
+						<!-- Play, Puase, Replay buttons -->
+						<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+							<controls:ImageButton ButtonSize="40"
+							                      Command="{Binding PlayCommand}"
+							                      FileName="{x:Static local:ResourceKeys.PlayIcon}"
+							                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_PlayButton}}"
+							                      Visibility="{Binding IsPlaying, Converter={utils:BoolToVisibilityConverter}, ConverterParameter={x:Static utils:VisibilityHelpers.InvertParam}}" />
+							<controls:ImageButton ButtonSize="40"
+							                      Command="{Binding PauseCommand}"
+							                      FileName="{x:Static local:ResourceKeys.PauseIcon}"
+							                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_PauseButton}}"
+							                      Visibility="{Binding IsPlaying, Converter={utils:BoolToVisibilityConverter}}" />
+							<controls:ImageButton ButtonSize="40"
+							                      Command="{Binding ReplayCommand}"
+							                      FileName="{x:Static local:ResourceKeys.ReplayIcon}"
+							                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_ReplayButton}}" />
+						</StackPanel>
+
+						<Border Padding="0 10" />
+
+						<!-- Sound Volume Definition -->
+						<controls:BracoGrid Columns="Auto, *">
+							<Image Width="25" Margin="0 0 4 0" Source="{svgc:SvgImage {x:Static local:ResourceKeys.VolumeIconSvgPath}}" />
+
+							<Slider Grid.Column="1" LargeChange="0.3" Maximum="1"
+							        Minimum="0" SmallChange="0.05"
+							        Value="{utils:TwoWayBinding SoundVolume}" />
+						</controls:BracoGrid>
+					</StackPanel>
+				</Border>
+
+				<!-- End Section -->
+				<local:Time Grid.Column="2"
+				            Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeInfo}}"
+				            Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeLabel}}"
+				            TimeDisplay="{utils:TwoWayBinding StartEndRange.End.Display}"
+				            TimeValue="{utils:TwoWayBinding StartEndRange.End.Value}"
+				            TimeValueMaximum="{Binding SliderMaximum}" />
+			</controls:BracoGrid>
+
+			<!-- Split Ranges -->
+			<controls:InputField Grid.Row="5" Width="800"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_SplitSectionsInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_SplitSectionsLabel}}">
+				<ScrollViewer MaxHeight="300" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+					<ItemsControl ItemsSource="{Binding SplitRanges}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<controls:BracoGrid Columns="*, 20, *, 20, Auto">
+									<!-- Start Section -->
+									<local:Time Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeInfo}}"
+									            Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeLabel}}"
+									            TimeDisplay="{utils:TwoWayBinding Start.Display}"
+									            TimeValue="{utils:TwoWayBinding Start.Value}"
+									            TimeValueMaximum="{utils:RelativeBinding DataContext.SliderMaximum,
+									                                                     {x:Type Page}}" />
+
+									<!-- End Section -->
+									<local:Time Grid.Column="2"
+									            Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeInfo}}"
+									            Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeLabel}}"
+									            TimeDisplay="{utils:TwoWayBinding End.Display}"
+									            TimeValue="{utils:TwoWayBinding End.Value}"
+									            TimeValueMaximum="{utils:RelativeBinding DataContext.SliderMaximum,
+									                                                     {x:Type Page}}" />
+
+									<!-- Remove Split Range Button -->
+									<controls:ImageButton Grid.Column="4" VerticalAlignment="Center" ButtonSize="25"
+									                      Command="{utils:RelativeBinding DataContext.RemoveSplitRangeCommand,
+									                                                      {x:Type Page}}"
+									                      CommandParameter="{Binding .}"
+									                      FileName="{x:Static local:ResourceKeys.MinusIcon}"
+									                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_RemoveSplitSectionButton}}" />
+								</controls:BracoGrid>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</ScrollViewer>
+
+				<controls:InputField.ContentToTheRight>
+					<!-- Add Split Range Button -->
+					<controls:ImageButton HorizontalAlignment="Right" VerticalAlignment="Top" ButtonSize="25"
+					                      Command="{Binding AddSplitRangeCommand}"
+					                      FileName="{x:Static local:ResourceKeys.PlusIcon}"
+					                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_AddSplitSectionButton}}" />
+				</controls:InputField.ContentToTheRight>
+			</controls:InputField>
+
+			<!-- Split & Skip Buttons -->
+			<StackPanel Grid.Row="7" HorizontalAlignment="Center" Orientation="Horizontal">
+				<!-- Split Button -->
+				<Button Command="{Binding SplitCommand}" Content="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_SplitButton}}" Style="{StaticResource ShadowButton}" />
+
+				<Border Padding="5 0" />
+
+				<!-- Skip Button -->
+				<Button Command="{Binding SkipCommand}" Content="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_SkipButton}}" Style="{StaticResource ShadowButton}" />
+			</StackPanel>
+		</controls:BracoGrid>
+
+		<!-- Splitting progress -->
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsConfiguring, Converter={utils:BoolToVisibilityConverter}, ConverterParameter={x:Static utils:VisibilityHelpers.InvertParam}}">
+			<TextBlock HorizontalAlignment="Center" Text="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_SplittingLabel}}" />
+
+			<Border Padding="0 8" />
+
+			<ProgressBar Width="500" Height="50" IsIndeterminate="True" />
+		</StackPanel>
+	</Grid>
+</utils:BasePage>

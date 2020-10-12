@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:media="clr-namespace:Braco.Services.Media;assembly=Braco.Services.Media"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+	<system:String x:Key="{x:Static media:UnfinishedReasons.InvalidYouTubeUri}">Morate unijeti ispravnu YouTube adresu!</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoNotFound}">Nije pronađen video na danoj adresi...</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoFileWritingError}">Dogodila se greška pri pisanju video podataka u datoteku...</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoDownloadError}">Dogodila se greška pri preuzimanju videa.</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.AudioDownloadError}">Dogodila se greška pri preuzimanju glazbe.</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoToAudioConversionError}">Dogodila se greška pri prebacivanju videa u glazbu.</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.AudioSplitError}">Dogodila se greška pri rezanju glazbe.</system:String>
+</ResourceDictionary>

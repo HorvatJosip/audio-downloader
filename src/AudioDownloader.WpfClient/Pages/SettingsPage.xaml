@@ -1,0 +1,57 @@
+﻿<utils:BasePage x:Class="AudioDownloader.WpfClient.SettingsPage" x:TypeArguments="local:SettingsPageViewModel"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls"
+                xmlns:local="clr-namespace:AudioDownloader.WpfClient"
+                xmlns:utils="clr-namespace:Braco.Utilities.Wpf;assembly=Braco.Utilities.Wpf">
+	<Grid>
+		<controls:BracoGrid Rows="5xAuto" SpacedRows="AroundAndBetween">
+			<!-- Language -->
+			<controls:InputField Grid.Row="1" Width="500" Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_LanguageLabel}}">
+				<ComboBox DisplayMemberPath="EnglishName" ItemsSource="{Binding Languages}" SelectedItem="{utils:TwoWayBinding Language}" />
+			</controls:InputField>
+
+			<!-- Video Download Location -->
+			<controls:InputField Grid.Row="3" Width="500"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_VideoDownloadLocationInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_VideoDownloadLocationLabel}}">
+				<controls:BracoGrid Columns="*, 10, Auto">
+					<TextBox Text="{utils:TwoWayBinding VideoDownloadDirectory}" />
+
+					<controls:ImageButton Grid.Column="2" ButtonSize="30"
+					                      Command="{Binding PickVideoDirectoryCommand}"
+					                      FileName="{x:Static local:ResourceKeys.DirectoryIcon}"
+					                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryButtonToolTip}}" />
+				</controls:BracoGrid>
+			</controls:InputField>
+
+			<!-- Delete Video After Download -->
+			<controls:InputField Grid.Row="5" Width="500"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadLabel}}">
+				<CheckBox IsChecked="{utils:TwoWayBinding DeleteVideoAfterMP3Conversion}" />
+			</controls:InputField>
+
+			<!-- Audio Download Location -->
+			<controls:InputField Grid.Row="7" Width="500"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_AudioDownloadLocationInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_AudioDownloadLocationLabel}}">
+				<controls:BracoGrid Columns="*, 10, Auto">
+					<TextBox Text="{utils:TwoWayBinding AudioDownloadDirectory}" />
+
+					<controls:ImageButton Grid.Column="2" ButtonSize="30"
+					                      Command="{Binding PickAudioDirectoryCommand}"
+					                      FileName="{x:Static local:ResourceKeys.DirectoryIcon}"
+					                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.Settings_PickAudioDownloadDirectoryButtonToolTip}}" />
+				</controls:BracoGrid>
+			</controls:InputField>
+
+			<!-- Delete Audio After Splitting -->
+			<controls:InputField Grid.Row="9" Width="500"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingLabel}}">
+				<CheckBox IsChecked="{utils:TwoWayBinding DeleteAudioSplitSourceFile}" />
+			</controls:InputField>
+		</controls:BracoGrid>
+	</Grid>
+</utils:BasePage>

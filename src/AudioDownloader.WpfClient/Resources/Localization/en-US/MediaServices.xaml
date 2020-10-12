@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:media="clr-namespace:Braco.Services.Media;assembly=Braco.Services.Media"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+	<system:String x:Key="{x:Static media:UnfinishedReasons.InvalidYouTubeUri}">You must provide a valid YouTube link!</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoNotFound}">Video wasn't found for the given link...</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoFileWritingError}">There was an error writing video data to the file...</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoDownloadError}">There was an error while downloading the video.</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.AudioDownloadError}">There was an error while downloading the audio.</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.VideoToAudioConversionError}">There was an error during video to audio conversion.</system:String>
+	<system:String x:Key="{x:Static media:UnfinishedReasons.AudioSplitError}">There was an error during audio split process.</system:String>
+</ResourceDictionary>

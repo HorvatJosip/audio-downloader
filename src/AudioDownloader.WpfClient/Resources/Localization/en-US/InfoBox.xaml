@@ -1,0 +1,9 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+	<!-- Title based on type -->
+	<system:String x:Key="InfoBoxType_Error_Title">An error occurred...</system:String>
+	<system:String x:Key="InfoBoxType_Information_Title">Information</system:String>
+	<system:String x:Key="InfoBoxType_Warning_Title">Warning</system:String>
+	<system:String x:Key="InfoBoxType_Success_Title">Success</system:String>
+</ResourceDictionary>

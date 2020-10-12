@@ -1,0 +1,9 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+	<!-- Title based on type -->
+	<system:String x:Key="InfoBoxType_Error_Title">Dogodila se greška...</system:String>
+	<system:String x:Key="InfoBoxType_Information_Title">Informacija</system:String>
+	<system:String x:Key="InfoBoxType_Warning_Title">Upozorenje</system:String>
+	<system:String x:Key="InfoBoxType_Success_Title">Uspjeh</system:String>
+</ResourceDictionary>
