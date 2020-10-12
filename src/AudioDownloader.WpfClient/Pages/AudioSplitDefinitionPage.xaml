@@ -94,8 +94,9 @@
 									            Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeLabel}}"
 									            TimeDisplay="{utils:TwoWayBinding Start.Display}"
 									            TimeValue="{utils:TwoWayBinding Start.Value}"
-									            TimeValueMaximum="{utils:RelativeBinding DataContext.SliderMaximum,
-									                                                     {x:Type Page}}" />
+									            TimeValueMaximum="{utils:RelativeBinding SliderMaximum,
+									                                                     {x:Type Page},
+									                                                     True}" />
 
 									<!-- End Section -->
 									<local:Time Grid.Column="2"
@@ -103,13 +104,15 @@
 									            Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_EndTimeLabel}}"
 									            TimeDisplay="{utils:TwoWayBinding End.Display}"
 									            TimeValue="{utils:TwoWayBinding End.Value}"
-									            TimeValueMaximum="{utils:RelativeBinding DataContext.SliderMaximum,
-									                                                     {x:Type Page}}" />
+									            TimeValueMaximum="{utils:RelativeBinding SliderMaximum,
+									                                                     {x:Type Page},
+									                                                     True}" />
 
 									<!-- Remove Split Range Button -->
 									<controls:ImageButton Grid.Column="4" VerticalAlignment="Center" ButtonSize="25"
-									                      Command="{utils:RelativeBinding DataContext.RemoveSplitRangeCommand,
-									                                                      {x:Type Page}}"
+									                      Command="{utils:RelativeBinding RemoveSplitRangeCommand,
+									                                                      {x:Type Page},
+									                                                      True}"
 									                      CommandParameter="{Binding .}"
 									                      FileName="{x:Static local:ResourceKeys.MinusIcon}"
 									                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_RemoveSplitSectionButton}}" />
