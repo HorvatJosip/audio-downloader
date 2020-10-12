@@ -76,7 +76,7 @@ namespace AudioDownloader.WpfClient
 			}
 			else if (response.UnfinishedReason != MediaDownloadResponse.RequestCancelled)
 			{
-				_windowService.ShowErrorInInfoBox(_localizer[response.UnfinishedReason]);
+				ShowErrorInInfoBox(_localizer[response.UnfinishedReason]);
 			}
 
 			IsDownloading = false;
@@ -90,7 +90,7 @@ namespace AudioDownloader.WpfClient
 			}
 			catch (Exception ex)
 			{
-				_windowService.ShowErrorInInfoBox(_localizer.Format(LocalizationKeys.SourceDefinition_CancellationProcessError, new[] { ex?.Message }));
+				ShowErrorInInfoBox(_localizer.Format(LocalizationKeys.SourceDefinition_CancellationProcessError, new[] { ex?.Message }));
 			}
 
 			IsDownloading = false;

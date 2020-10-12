@@ -132,7 +132,7 @@ namespace AudioDownloader.WpfClient
 			}
 			else
 			{
-				_windowService.ShowErrorInInfoBox(_localizer[response.UnfinishedReason]);
+				ShowErrorInInfoBox(_localizer[response.UnfinishedReason]);
 				InitializeSoundData();
 			}
 		}
@@ -162,7 +162,7 @@ namespace AudioDownloader.WpfClient
 
 			if (culture == null)
 			{
-				_windowService.ShowErrorInInfoBox(_localizer[LocalizationKeys.AudioSplitDefinition_CurrentCultureError]);
+				ShowErrorInInfoBox(_localizer[LocalizationKeys.AudioSplitDefinition_CurrentCultureError]);
 				return;
 			}
 
