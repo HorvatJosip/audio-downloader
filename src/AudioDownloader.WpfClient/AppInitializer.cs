@@ -16,12 +16,12 @@ namespace AudioDownloader.WpfClient
 				typeof(PathManagerSetup),
 				typeof(ResourceManagerSetup),
 				typeof(Braco.Services.OtherServicesSetup),
+				typeof(WindowsProcessStarterSetup),
 
 				// Braco.Utilities.Wpf
 				typeof(WpfDictionaryLocalizerSetup),
 				typeof(ImageGetterSetup),
 				typeof(ToolTipGetterSetup),
-				typeof(WindowsProcessStarterSetup),
 				typeof(ViewModelsSetup),
 				typeof(Braco.Utilities.Wpf.OtherServicesSetup),
 

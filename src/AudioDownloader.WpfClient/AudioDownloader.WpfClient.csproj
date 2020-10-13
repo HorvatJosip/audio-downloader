@@ -13,11 +13,13 @@
     <None Remove="Resources\Images\Close.svg" />
     <None Remove="Resources\Images\Directory.svg" />
     <None Remove="Resources\Images\Down.svg" />
+    <None Remove="Resources\Images\Eraser.svg" />
     <None Remove="Resources\Images\Heading.svg" />
     <None Remove="Resources\Images\Logo" />
     <None Remove="Resources\Images\Maximize.svg" />
     <None Remove="Resources\Images\Minimize.svg" />
     <None Remove="Resources\Images\Minus.svg" />
+    <None Remove="Resources\Images\NumberOne.svg" />
     <None Remove="Resources\Images\Pause.svg" />
     <None Remove="Resources\Images\Play.svg" />
     <None Remove="Resources\Images\Plus.svg" />
@@ -36,7 +38,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Images\Eraser.svg" />
     <Resource Include="Resources\Images\Minus.svg" />
+    <Resource Include="Resources\Images\NumberOne.svg" />
     <Resource Include="Resources\Images\Plus.svg" />
     <Resource Include="Resources\Images\PreviousPage.svg" />
     <Resource Include="Resources\Images\Cancel.svg" />

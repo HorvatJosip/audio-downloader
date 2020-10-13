@@ -26,11 +26,15 @@
 			</controls:InputField>
 
 			<!-- Delete Video After Download -->
-			<controls:InputField Grid.Row="5" Width="500"
-			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadInfo}}"
-			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadLabel}}">
-				<CheckBox IsChecked="{utils:TwoWayBinding DeleteVideoAfterMP3Conversion}" />
-			</controls:InputField>
+			<StackPanel Grid.Row="5" Width="500" Orientation="Horizontal">
+				<CheckBox IsChecked="{utils:TwoWayBinding DeleteVideoAfterMP3Conversion}">
+					<TextBlock FontSize="{DynamicResource fontSizeLarge}" FontWeight="Bold" Text="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadLabel}}" />
+				</CheckBox>
+
+				<controls:ImageButton Margin="5 0 0 0" ButtonSize="30"
+				                      FileName="{x:Static local:ResourceKeys.QuestionMarkIcon}"
+				                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadInfo}}" />
+			</StackPanel>
 
 			<!-- Audio Download Location -->
 			<controls:InputField Grid.Row="7" Width="500"
@@ -47,11 +51,15 @@
 			</controls:InputField>
 
 			<!-- Delete Audio After Splitting -->
-			<controls:InputField Grid.Row="9" Width="500"
-			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingInfo}}"
-			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingLabel}}">
-				<CheckBox IsChecked="{utils:TwoWayBinding DeleteAudioSplitSourceFile}" />
-			</controls:InputField>
+			<StackPanel Grid.Row="9" Width="500" Orientation="Horizontal">
+				<CheckBox IsChecked="{utils:TwoWayBinding DeleteAudioSplitSourceFile}">
+					<TextBlock FontSize="{DynamicResource fontSizeLarge}" FontWeight="Bold" Text="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingLabel}}" />
+				</CheckBox>
+
+				<controls:ImageButton Margin="5 0 0 0" ButtonSize="30"
+				                      FileName="{x:Static local:ResourceKeys.QuestionMarkIcon}"
+				                      ToolTip="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingInfo}}" />
+			</StackPanel>
 		</controls:BracoGrid>
 	</Grid>
 </utils:BasePage>

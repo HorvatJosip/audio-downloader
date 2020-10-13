@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -18,6 +19,8 @@ namespace AudioDownloader.WpfClient
 	[AutoMap(sourceType: typeof(MediaDownloadResponse))]
 	public class AudioSplitDefinitionPageViewModel : PageViewModel
 	{
+		public const string TitleSeparator = "-";
+
 		private readonly IMediaSplitter _audioSplitter;
 		private readonly IWavePlayer _soundPlayer;
 
@@ -80,6 +83,8 @@ namespace AudioDownloader.WpfClient
 		public ICommand SplitCommand { get; }
 		public ICommand SkipCommand { get; }
 		public ICommand NormalizeTitleCommand { get; }
+		public ICommand CapitalizeOnlyFirstTitleWordCommand { get; }
+		public ICommand RemoveContentAfterAudioTitleCommand { get; }
 		public ICommand PlayCommand { get; }
 		public ICommand PauseCommand { get; }
 		public ICommand ReplayCommand { get; }
@@ -94,6 +99,8 @@ namespace AudioDownloader.WpfClient
 			SplitCommand = new RelayCommand(OnSplit);
 			SkipCommand = new RelayCommand(OnSkip);
 			NormalizeTitleCommand = new RelayCommand(OnNormalizeTitle);
+			CapitalizeOnlyFirstTitleWordCommand = new RelayCommand(OnCapitalizeOnlyFirstTitleWord);
+			RemoveContentAfterAudioTitleCommand = new RelayCommand(OnRemoveContentAfterAudioTitle);
 			PlayCommand = new RelayCommand(OnPlay);
 			PauseCommand = new RelayCommand(OnPause);
 			ReplayCommand = new RelayCommand(OnReplay);
@@ -167,6 +174,75 @@ namespace AudioDownloader.WpfClient
 			}
 
 			AudioTitle = culture.TextInfo.ToTitleCase(AudioTitle.ToLower());
+		}
+
+		private void OnCapitalizeOnlyFirstTitleWord()
+		{
+			var (titleStartIndex, titleEndIndex) = TitleIndices();
+
+			var goesUntilEnd = titleEndIndex == -1;
+
+			if (goesUntilEnd) titleEndIndex = AudioTitle.Length - 1;
+
+			if (titleStartIndex == -1 || titleEndIndex == -1) return;
+
+			var title = new StringBuilder(AudioTitle[0..titleStartIndex]);
+
+			title.Append(char.ToUpper(AudioTitle[titleStartIndex]));
+			title.Append(AudioTitle[(titleStartIndex + 1)..(titleEndIndex + 1)].ToLower());
+
+			if (!goesUntilEnd)
+			{
+				title.Append(AudioTitle.Substring(titleEndIndex + 1));
+			}
+
+			AudioTitle = title.ToString();
+		}
+
+		private void OnRemoveContentAfterAudioTitle()
+		{
+			var (_, titleEndIndex) = TitleIndices();
+
+			if (titleEndIndex != -1)
+			{
+				AudioTitle = AudioTitle.Remove(titleEndIndex + 1);
+			}
+		}
+
+		private (int titleStartIndex, int titleEndIndex) TitleIndices()
+		{
+			var result = (titleStartIndex: - 1, titleEndIndex: - 1);
+
+			var titleSeparatorIndex = AudioTitle.IndexOf(TitleSeparator);
+
+			if(titleSeparatorIndex != -1)
+			{
+				for(int i = titleSeparatorIndex + 1; i < AudioTitle.Length; i++)
+				{
+					var @char = AudioTitle[i];
+
+					var isLetterOrDigit = char.IsLetterOrDigit(@char);
+					
+					if(result.titleStartIndex == -1 && isLetterOrDigit)
+					{
+						result.titleStartIndex = i;
+					}
+
+					if (!(char.IsWhiteSpace(@char) || isLetterOrDigit))
+					{
+						for(int j = i; j >= 0; j--)
+						{
+							if (char.IsLetter(AudioTitle[j]))
+							{
+								result.titleEndIndex = j;
+								return result;
+							}
+						}
+					}
+				}
+			}
+
+			return result;
 		}
 
 		private void OnPlay()

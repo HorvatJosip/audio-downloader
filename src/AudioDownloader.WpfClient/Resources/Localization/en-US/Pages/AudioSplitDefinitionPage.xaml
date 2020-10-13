@@ -5,7 +5,9 @@
 
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameLabel}">File Name</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameInfo}">Name of the file to you wish to use</system:String>
-	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_HeadingButtonToolTip}">Convert file name to title case (e.g. "SOME TITLE" becomes "Some Title")</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_NormalizeTitleButtonToolTip}">Convert file name to title case (e.g. "SOME TITLE" becomes "Some Title")</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_CapitalizeOnlyFirstTitleWordButtonToolTip}">Capitalize only first word in the title</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_RemoveContentAfterAudioTitleButtonToolTip}">Remove content after the title</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeLabel}">Start Time</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeInfo}">Timestamp of when the audio file should start</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_PlayButton}">Play</system:String>

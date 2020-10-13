@@ -6,7 +6,11 @@
 
 		public const string AudioSplitDefinition_FileNameInfo = nameof(AudioSplitDefinition_FileNameInfo);
 
-		public const string AudioSplitDefinition_HeadingButtonToolTip = nameof(AudioSplitDefinition_HeadingButtonToolTip);
+		public const string AudioSplitDefinition_NormalizeTitleButtonToolTip = nameof(AudioSplitDefinition_NormalizeTitleButtonToolTip);
+
+		public const string AudioSplitDefinition_CapitalizeOnlyFirstTitleWordButtonToolTip = nameof(AudioSplitDefinition_CapitalizeOnlyFirstTitleWordButtonToolTip);
+
+		public const string AudioSplitDefinition_RemoveContentAfterAudioTitleButtonToolTip = nameof(AudioSplitDefinition_RemoveContentAfterAudioTitleButtonToolTip);
 
 		public const string AudioSplitDefinition_StartTimeLabel = nameof(AudioSplitDefinition_StartTimeLabel);
 

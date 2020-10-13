@@ -13,12 +13,19 @@
 			                     Info="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameInfo}}"
 			                     Label="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameLabel}}">
 				<controls:BracoGrid Columns="Auto, *, Auto">
-					<controls:ImageButton Command="{Binding NormalizeTitleCommand}" FileName="{x:Static local:ResourceKeys.HeadingIcon}" ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_HeadingButtonToolTip}}" />
-
 					<TextBox Grid.Column="1" Text="{utils:TwoWayBinding AudioTitle}" />
 
 					<TextBlock Grid.Column="2" VerticalAlignment="Center" Text=".mp3" />
 				</controls:BracoGrid>
+
+				<!-- File name edit options -->
+				<controls:InputField.ContentToTheRight>
+					<StackPanel Margin="10 0 0 0" Orientation="Horizontal">
+						<controls:ImageButton Command="{Binding NormalizeTitleCommand}" FileName="{x:Static local:ResourceKeys.HeadingIcon}" ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_NormalizeTitleButtonToolTip}}" />
+						<controls:ImageButton Command="{Binding CapitalizeOnlyFirstTitleWordCommand}" FileName="{x:Static local:ResourceKeys.NumberOneIcon}" ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_CapitalizeOnlyFirstTitleWordButtonToolTip}}" />
+						<controls:ImageButton Command="{Binding RemoveContentAfterAudioTitleCommand}" FileName="{x:Static local:ResourceKeys.EraserIcon}" ToolTip="{DynamicResource {x:Static local:LocalizationKeys.AudioSplitDefinition_RemoveContentAfterAudioTitleButtonToolTip}}" />
+					</StackPanel>
+				</controls:InputField.ContentToTheRight>
 			</controls:InputField>
 
 			<!-- Start Section | Audio Controls | End Section -->

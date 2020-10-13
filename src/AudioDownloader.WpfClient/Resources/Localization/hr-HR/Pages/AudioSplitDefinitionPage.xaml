@@ -5,7 +5,9 @@
 
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameLabel}">Naziv datoteke</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_FileNameInfo}">Naziv koji želite koristiti za datoteku</system:String>
-	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_HeadingButtonToolTip}">Naziv datoteke zapiši u stilu naslova (npr. "NEKI NASLOV" bi postao "Neki Naslov")</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_NormalizeTitleButtonToolTip}">Naziv datoteke zapiši u stilu naslova (npr. "NEKI NASLOV" bi postao "Neki Naslov")</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_CapitalizeOnlyFirstTitleWordButtonToolTip}">Samo prvu riječ u naslovu zapiši velikim početnim slovom</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_RemoveContentAfterAudioTitleButtonToolTip}">Ukloni sadržaj nakon naslova</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeLabel}">Početno vrijeme</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_StartTimeInfo}">Kad audio datoteka treba započeti</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.AudioSplitDefinition_PlayButton}">Započni glazbu</system:String>

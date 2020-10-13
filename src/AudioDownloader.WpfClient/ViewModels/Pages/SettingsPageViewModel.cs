@@ -42,14 +42,44 @@ namespace AudioDownloader.WpfClient
 
 		#endregion
 
+		#region Video Download Directory
+
+		private string _videoDownloadDirectory;
+
 		[Setting]
-		public string VideoDownloadDirectory { get; set; }
+		public string VideoDownloadDirectory
+		{
+			get => _videoDownloadDirectory;
+			set
+			{
+				if (Equals(value, _videoDownloadDirectory)) return;
+
+				_videoDownloadDirectory = PathUtilities.GetPathWithoutInvalidChars(value);
+			}
+		}
+
+		#endregion
 
 		[Setting]
 		public bool DeleteVideoAfterMP3Conversion { get; set; }
 
+		#region Audio Download Directory
+
+		private string _audioDownloadDirectory;
+
 		[Setting]
-		public string AudioDownloadDirectory { get; set; }
+		public string AudioDownloadDirectory
+		{
+			get => _audioDownloadDirectory;
+			set
+			{
+				if (Equals(value, _audioDownloadDirectory)) return;
+
+				_audioDownloadDirectory = PathUtilities.GetPathWithoutInvalidChars(value);
+			}
+		} 
+
+		#endregion
 
 		[Setting]
 		public bool DeleteAudioSplitSourceFile { get; set; }

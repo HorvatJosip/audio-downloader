@@ -10,6 +10,8 @@
 		public const string PlayIcon = "Play";
 		public const string PlusIcon = "Plus";
 		public const string ReplayIcon = "Replay";
+		public const string EraserIcon = "Eraser";
+		public const string NumberOneIcon = "NumberOne";
 
 		public const string VolumeIconSvgPath = "../Resources/Images/Volume.svg";
 	}
