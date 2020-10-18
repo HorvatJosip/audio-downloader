@@ -299,7 +299,13 @@ namespace AudioDownloader.WpfClient
 
 			_waveChannel = new WaveChannel32(_mp3);
 			_soundPlayer.Init(_waveChannel);
-			SoundVolume = _config.Get<double>(ConfigurationKeys.Volume);
+			var volume = _config.Get<double>(ConfigurationKeys.Volume);
+			SoundVolume = volume;
+
+			if (_waveChannel != null)
+			{
+				_waveChannel.Volume = (float)volume;
+			}
 
 			StartEndRange = new TimeRangeViewModel(AudioDuration.TotalMilliseconds, OnTimeValueChanged, OnTimeDisplayChanged);
 
