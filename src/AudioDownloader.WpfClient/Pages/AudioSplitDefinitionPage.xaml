@@ -65,8 +65,8 @@
 						<controls:BracoGrid Columns="Auto, *">
 							<Image Width="25" Margin="0 0 4 0" Source="{svgc:SvgImage {x:Static local:ResourceKeys.VolumeIconSvgPath}}" />
 
-							<Slider Grid.Column="1" LargeChange="0.3" Maximum="1"
-							        Minimum="0" SmallChange="0.05"
+							<Slider Grid.Column="1" local:MoveToPointAndSlideProperty.Value="True" Maximum="1"
+							        Minimum="0"
 							        Value="{utils:TwoWayBinding SoundVolume}" />
 						</controls:BracoGrid>
 					</StackPanel>

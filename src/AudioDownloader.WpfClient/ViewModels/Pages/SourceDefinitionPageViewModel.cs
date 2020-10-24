@@ -4,6 +4,7 @@ using Braco.Utilities;
 using Braco.Utilities.Extensions;
 using Braco.Utilities.Wpf;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Windows.Input;
@@ -44,39 +45,58 @@ namespace AudioDownloader.WpfClient
 			if (IsDownloading) return;
 
 			IsDownloading = true;
-			_cancellationTokenSource = new CancellationTokenSource();
-			
-			var response = await _audioDownloader.DownloadAsync
-			(
-				request: new MediaDownloadRequest
-				{
-					DataCallback = DataCallback,
-					Directory = new DirectoryInfo(_config[ConfigurationKeys.AudioDownloadDirectory]),
-					DownloadInfo = new RemoteResourceDownloadInfo
-					{
-						ChunkSize = 1024,
-						Uri = YouTubeLink
-					}
-				},
-				cancellationToken: _cancellationTokenSource.Token
-			);
 
-			if (response.Finished)
+			var downloadDirectory = new DirectoryInfo(_config[ConfigurationKeys.AudioDownloadDirectory]);
+
+			var downloadRequest = new MediaDownloadRequest
 			{
-				if (_config.Get<bool>(ConfigurationKeys.DeleteVideoAfterMP3Conversion))
+				DataCallback = DataCallback,
+				Directory = downloadDirectory,
+				DownloadInfo = new RemoteResourceDownloadInfo
 				{
-					var videosDirectory = _config[ConfigurationKeys.VideoDownloadDirectory];
-
-					Directory
-						.GetFiles(videosDirectory, $"{response.Data.Title}.*", SearchOption.TopDirectoryOnly)
-						.ForEach(file => File.Delete(file));
+					ChunkSize = 1024,
+					Uri = YouTubeLink
 				}
+			};
 
-				_windowService.ChangePage<AudioSplitDefinitionPageViewModel>(response);
-			}
-			else if (response.UnfinishedReason != MediaDownloadResponse.RequestCancelled)
+			var errors = new List<string>();
+			MediaDownloadResponse response = MediaDownloadResponse.Cancelled();
+
+			for (int i = 0; i < _config.Get<int>(ConfigurationKeys.DownloadRetryCount); i++)
 			{
-				ShowErrorInInfoBox(_localizer[response.UnfinishedReason]);
+				_cancellationTokenSource = new CancellationTokenSource();
+
+				response = await _audioDownloader.DownloadAsync(downloadRequest, _cancellationTokenSource.Token);
+				downloadRequest.Directory = downloadDirectory;
+
+				if (response.Finished)
+				{
+					if (_config.Get<bool>(ConfigurationKeys.DeleteVideoAfterMP3Conversion))
+					{
+						var videosDirectory = _config[ConfigurationKeys.VideoDownloadDirectory];
+
+						Directory
+							.GetFiles(videosDirectory, $"{response.Data.Title}.*", SearchOption.TopDirectoryOnly)
+							.ForEach(file => File.Delete(file));
+					}
+
+					_windowService.ChangePage<AudioSplitDefinitionPageViewModel>(response);
+
+					break;
+				}
+				else if (response.UnfinishedReason != MediaDownloadResponse.RequestCancelled)
+				{
+					errors.Add(_localizer[response.UnfinishedReason]);
+				}
+				else
+				{
+					break;
+				}
+			}
+
+			if (!response.Finished && errors.IsNotNullOrEmpty())
+			{
+				ShowErrorInInfoBox(errors.Join(Environment.NewLine));
 			}
 
 			IsDownloading = false;

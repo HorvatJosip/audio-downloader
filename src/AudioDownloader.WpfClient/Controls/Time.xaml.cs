@@ -53,24 +53,6 @@ namespace AudioDownloader.WpfClient
 		public static readonly DependencyProperty TimeValueMaximumProperty =
 			DependencyProperty.Register(nameof(TimeValueMaximum), typeof(double), typeof(Time), new PropertyMetadata(0.0));
 
-		public double SmallSliderChange
-		{
-			get { return (double)GetValue(SmallSliderChangeProperty); }
-			set { SetValue(SmallSliderChangeProperty, value); }
-		}
-
-		public static readonly DependencyProperty SmallSliderChangeProperty =
-			DependencyProperty.Register(nameof(SmallSliderChange), typeof(double), typeof(Time), new PropertyMetadata(30.0));
-
-		public double LargeSliderChange
-		{
-			get { return (double)GetValue(LargeSliderChangeProperty); }
-			set { SetValue(LargeSliderChangeProperty, value); }
-		}
-
-		public static readonly DependencyProperty LargeSliderChangeProperty =
-			DependencyProperty.Register(nameof(LargeSliderChange), typeof(double), typeof(Time), new PropertyMetadata(3000.0));
-
 		public Time()
 		{
 			InitializeComponent();

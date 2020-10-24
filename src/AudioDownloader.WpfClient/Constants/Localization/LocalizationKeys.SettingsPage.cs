@@ -4,6 +4,10 @@
 	{
 		public const string Settings_LanguageLabel = nameof(Settings_LanguageLabel);
 
+		public const string Settings_DownloadRetryCountLabel = nameof(Settings_DownloadRetryCountLabel);
+
+		public const string Settings_DownloadRetryCountInfo = nameof(Settings_DownloadRetryCountInfo);
+
 		public const string Settings_VideoDownloadLocationLabel = nameof(Settings_VideoDownloadLocationLabel);
 
 		public const string Settings_VideoDownloadLocationInfo = nameof(Settings_VideoDownloadLocationInfo);

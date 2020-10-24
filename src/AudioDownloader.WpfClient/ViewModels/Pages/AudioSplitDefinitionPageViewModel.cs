@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Braco.Services.Abstractions;
 using Braco.Services.Media;
 using Braco.Services.Media.Abstractions;
 using Braco.Utilities;
@@ -22,6 +23,7 @@ namespace AudioDownloader.WpfClient
 		public const string TitleSeparator = "-";
 
 		private readonly IMediaSplitter _audioSplitter;
+		private readonly IMethodService _methodService;
 		private readonly IWavePlayer _soundPlayer;
 
 		private Mp3FileReader _mp3;
@@ -91,9 +93,10 @@ namespace AudioDownloader.WpfClient
 		public ICommand AddSplitRangeCommand { get; }
 		public ICommand RemoveSplitRangeCommand { get; }
 
-		public AudioSplitDefinitionPageViewModel(IMediaSplitter audioSplitter)
+		public AudioSplitDefinitionPageViewModel(IMediaSplitter audioSplitter, IMethodService methodService)
 		{
 			_audioSplitter = audioSplitter ?? throw new ArgumentNullException(nameof(audioSplitter));
+			_methodService = methodService ?? throw new ArgumentNullException(nameof(methodService));
 			_soundPlayer = new DirectSoundOut();
 
 			SplitCommand = new RelayCommand(OnSplit);
@@ -148,6 +151,7 @@ namespace AudioDownloader.WpfClient
 		{
 			IsConfiguring = false;
 
+			OnPause();
 			_mp3.Dispose();
 
 			if (File.Name != AudioTitle)
@@ -308,6 +312,7 @@ namespace AudioDownloader.WpfClient
 			}
 
 			StartEndRange = new TimeRangeViewModel(AudioDuration.TotalMilliseconds, OnTimeValueChanged, OnTimeDisplayChanged);
+			_methodService.InvokeOnUIThread(SplitRanges.Clear);
 
 			IsConfiguring = true;
 		}

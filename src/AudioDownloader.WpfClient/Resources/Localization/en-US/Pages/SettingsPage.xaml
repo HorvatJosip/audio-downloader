@@ -4,6 +4,8 @@
                     xmlns:local="clr-namespace:AudioDownloader.WpfClient">
 
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_LanguageLabel}">Language</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DownloadRetryCountLabel}">Download Retry Count</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DownloadRetryCountInfo}">How many times will the download be initiaited even though something went wrong (for example, an error appears that no video is available at the given address, but it clearly exists since you've pasted the address from the address bar)</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationLabel}">Video Download Location</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationInfo}">Location where the videos will be downloaded before conversion to MP3</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryButtonToolTip}">Choose a location for downloading videos</system:String>

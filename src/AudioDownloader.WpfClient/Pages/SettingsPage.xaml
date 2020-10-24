@@ -5,14 +5,21 @@
                 xmlns:local="clr-namespace:AudioDownloader.WpfClient"
                 xmlns:utils="clr-namespace:Braco.Utilities.Wpf;assembly=Braco.Utilities.Wpf">
 	<Grid>
-		<controls:BracoGrid Rows="5xAuto" SpacedRows="AroundAndBetween">
+		<controls:BracoGrid Rows="6xAuto" SpacedRows="AroundAndBetween">
 			<!-- Language -->
 			<controls:InputField Grid.Row="1" Width="500" Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_LanguageLabel}}">
 				<ComboBox DisplayMemberPath="EnglishName" ItemsSource="{Binding Languages}" SelectedItem="{utils:TwoWayBinding Language}" />
 			</controls:InputField>
+			
+			<!--Download Retry Count-->
+			<controls:InputField Grid.Row="3" Width="500"
+			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_DownloadRetryCountInfo}}"
+			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_DownloadRetryCountLabel}}">
+				<TextBox Text="{utils:TwoWayBinding DownloadRetryCount}" />
+			</controls:InputField>
 
 			<!-- Video Download Location -->
-			<controls:InputField Grid.Row="3" Width="500"
+			<controls:InputField Grid.Row="5" Width="500"
 			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_VideoDownloadLocationInfo}}"
 			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_VideoDownloadLocationLabel}}">
 				<controls:BracoGrid Columns="*, 10, Auto">
@@ -26,7 +33,7 @@
 			</controls:InputField>
 
 			<!-- Delete Video After Download -->
-			<StackPanel Grid.Row="5" Width="500" Orientation="Horizontal">
+			<StackPanel Grid.Row="7" Width="500" Orientation="Horizontal">
 				<CheckBox IsChecked="{utils:TwoWayBinding DeleteVideoAfterMP3Conversion}">
 					<TextBlock FontSize="{DynamicResource fontSizeLarge}" FontWeight="Bold" Text="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteVideoAfterDownloadLabel}}" />
 				</CheckBox>
@@ -37,7 +44,7 @@
 			</StackPanel>
 
 			<!-- Audio Download Location -->
-			<controls:InputField Grid.Row="7" Width="500"
+			<controls:InputField Grid.Row="9" Width="500"
 			                     Info="{DynamicResource {x:Static local:LocalizationKeys.Settings_AudioDownloadLocationInfo}}"
 			                     Label="{DynamicResource {x:Static local:LocalizationKeys.Settings_AudioDownloadLocationLabel}}">
 				<controls:BracoGrid Columns="*, 10, Auto">
@@ -51,7 +58,7 @@
 			</controls:InputField>
 
 			<!-- Delete Audio After Splitting -->
-			<StackPanel Grid.Row="9" Width="500" Orientation="Horizontal">
+			<StackPanel Grid.Row="11" Width="500" Orientation="Horizontal">
 				<CheckBox IsChecked="{utils:TwoWayBinding DeleteAudioSplitSourceFile}">
 					<TextBlock FontSize="{DynamicResource fontSizeLarge}" FontWeight="Bold" Text="{DynamicResource {x:Static local:LocalizationKeys.Settings_DeleteAudioAfterSplittingLabel}}" />
 				</CheckBox>

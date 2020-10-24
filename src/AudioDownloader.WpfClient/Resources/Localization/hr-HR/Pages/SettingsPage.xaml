@@ -4,6 +4,8 @@
                     xmlns:local="clr-namespace:AudioDownloader.WpfClient">
 
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_LanguageLabel}">Jezik</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DownloadRetryCountLabel}">Broj pokušaja preuzimanja</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_DownloadRetryCountInfo}">Koliko puta će se preuzimanje pokušati pokrenuti iako je nešto pošlo po zlu (npr. pojavi se greška da nema videa na toj adresi, a očigledno je da postoji ako ste kopirali adresu iz adresne trake)</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationLabel}">Lokacija za preuzimanje videa</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_VideoDownloadLocationInfo}">Lokacija gdje će se video preuzeti prije pretvaranja u mp3 datoteku</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.Settings_PickVideoDownloadDirectoryButtonToolTip}">Odabir lokacije gdje će se videi preuzimati</system:String>

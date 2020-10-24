@@ -42,6 +42,23 @@ namespace AudioDownloader.WpfClient
 
 		#endregion
 
+		#region Download Retry Count
+
+		private int _downloadRetryCount;
+		[Setting]
+		public int DownloadRetryCount
+		{
+			get => _downloadRetryCount;
+			set
+			{
+				if (Equals(value, _downloadRetryCount)) return;
+
+				_downloadRetryCount = Math.Max(value, 1);
+			}
+		}
+
+		#endregion
+
 		#region Video Download Directory
 
 		private string _videoDownloadDirectory;
@@ -77,7 +94,7 @@ namespace AudioDownloader.WpfClient
 
 				_audioDownloadDirectory = PathUtilities.GetPathWithoutInvalidChars(value);
 			}
-		} 
+		}
 
 		#endregion
 
@@ -85,12 +102,12 @@ namespace AudioDownloader.WpfClient
 		public bool DeleteAudioSplitSourceFile { get; set; }
 
 		public ICommand PickVideoDirectoryCommand { get; set; }
-		public ICommand PickAudioDirectoryCommand { get; set; } 
+		public ICommand PickAudioDirectoryCommand { get; set; }
 
 		public SettingsPageViewModel(IChooserDialogsService chooserDialogsService)
 		{
 			_chooserDialogsService = chooserDialogsService ?? throw new ArgumentNullException(nameof(chooserDialogsService));
-			
+
 			PickVideoDirectoryCommand = new RelayCommand(OnPickVideoDirectory);
 			PickAudioDirectoryCommand = new RelayCommand(OnPickAudioDirectory);
 
