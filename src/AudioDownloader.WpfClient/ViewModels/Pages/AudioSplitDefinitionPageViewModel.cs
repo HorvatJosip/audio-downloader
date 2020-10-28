@@ -121,7 +121,7 @@ namespace AudioDownloader.WpfClient
 			var request = new MediaSplitRequest
 			{
 				SourceFile = File,
-				DestinationFile = new FileInfo(Path.Combine(File.DirectoryName, $"{AudioTitle}{MP3AudioSplitter.Mp3Extension}")),
+				DestinationFile = new FileInfo(Path.Combine(_config[ConfigurationKeys.AudioDownloadDirectory], $"{AudioTitle}{MP3AudioSplitter.Mp3Extension}")),
 				Start = StartEndRange.Start.Time,
 				End = StartEndRange.End.Time,
 				SplitRanges = SplitRanges.Select(viewModel =>
