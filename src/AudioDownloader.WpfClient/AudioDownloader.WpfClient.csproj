@@ -35,6 +35,7 @@
     <PackageReference Include="Braco.Services.Media" Version="0.2.1" />
     <PackageReference Include="Braco.Utilities.Wpf.Controls" Version="0.7.1" />
     <PackageReference PrivateAssets="All" Include="PropertyChanged.Fody" Version="3.2.9" />
+    <PackageReference Include="taglib-sharp-netstandard2.0" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>

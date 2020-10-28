@@ -30,20 +30,30 @@
 		</StackPanel>
 
 		<!-- Processing Status (downloading, converting to mp3) -->
-		<StackPanel Grid.Row="3">
-			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Visibility="{Binding SongTitle, Converter={utils:StringToVisibilityConverter}}">
-				<TextBlock Margin="0 0 5 0" Text="{DynamicResource {x:Static local:LocalizationKeys.SourceDefinition_DownloadingLabel}}" Visibility="{Binding HasDownloaded, Converter={utils:BoolToVisibilityConverter}, ConverterParameter={x:Static utils:VisibilityHelpers.InvertParam}}" />
+		<Grid Grid.Row="3">
+			<StackPanel Grid.Row="3">
+				<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Visibility="{Binding SongTitle, Converter={utils:StringToVisibilityConverter}}">
+					<TextBlock Margin="0 0 5 0" Text="{DynamicResource {x:Static local:LocalizationKeys.SourceDefinition_DownloadingLabel}}" Visibility="{Binding HasDownloaded, Converter={utils:BoolToVisibilityConverter}, ConverterParameter={x:Static utils:VisibilityHelpers.InvertParam}}" />
 
-				<TextBlock><Run Text="&quot;" /><Run Text="{Binding SongTitle}" /><Run Text="&quot;" /></TextBlock>
+					<TextBlock><Run Text="&quot;" /><Run Text="{Binding SongTitle}" /><Run Text="&quot;" /></TextBlock>
 
-				<TextBlock Margin="5 0 0 0" Text="{DynamicResource {x:Static local:LocalizationKeys.SourceDefinition_ConvertingLabel}}" Visibility="{Binding HasDownloaded, Converter={utils:BoolToVisibilityConverter}}" />
+					<TextBlock Margin="5 0 0 0" Text="{DynamicResource {x:Static local:LocalizationKeys.SourceDefinition_ConvertingLabel}}" Visibility="{Binding HasDownloaded, Converter={utils:BoolToVisibilityConverter}}" />
 
-				<TextBlock Text="..." />
+					<TextBlock Text="..." />
+				</StackPanel>
+
+				<ProgressBar Height="50" MinWidth="100" MaxWidth="500"
+				             Margin="0 10 0 0" IsIndeterminate="True"
+				             Visibility="{Binding IsDownloading, Converter={utils:BoolToVisibilityConverter}}" />
 			</StackPanel>
 
-			<ProgressBar Height="50" MinWidth="100" MaxWidth="500"
-			             Margin="0 10 0 0" IsIndeterminate="True"
-			             Visibility="{Binding IsDownloading, Converter={utils:BoolToVisibilityConverter}}" />
-		</StackPanel>
+			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Visibility="{Binding IsDownloading, Converter={utils:BoolToVisibilityConverter}, ConverterParameter={x:Static utils:VisibilityHelpers.InvertParam}}">
+				<!-- Choose MP3 Button -->
+				<Button Command="{Binding ChooseMP3Command}" Content="{DynamicResource {x:Static local:LocalizationKeys.SourceDefinition_ChooseMP3Button}}" Style="{StaticResource ShadowButton}" />
+
+				<!-- MP3 Utilities Button -->
+				<Button Command="{Binding MP3UtilitiesCommand}" Content="{DynamicResource {x:Static local:LocalizationKeys.SourceDefinition_MP3UtilitiesButton}}" Style="{StaticResource ShadowButton}" />
+			</StackPanel>
+		</Grid>
 	</controls:BracoGrid>
 </utils:BasePage>

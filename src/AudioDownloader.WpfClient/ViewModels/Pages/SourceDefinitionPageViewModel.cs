@@ -17,6 +17,7 @@ namespace AudioDownloader.WpfClient
 		private const int videoDownloadedCallback = 2;
 
 		private readonly IMediaDownloader _audioDownloader;
+		private readonly IChooserDialogsService _dialogsService;
 		private readonly char[] _invalidFileNameChars;
 
 		private CancellationTokenSource _cancellationTokenSource;
@@ -30,14 +31,19 @@ namespace AudioDownloader.WpfClient
 
 		public ICommand DownloadCommand { get; }
 		public ICommand CancelCommand { get; }
+		public ICommand ChooseMP3Command { get; }
+		public ICommand MP3UtilitiesCommand { get; }
 
-		public SourceDefinitionPageViewModel(IMediaDownloader audioDownloader)
+		public SourceDefinitionPageViewModel(IMediaDownloader audioDownloader, IChooserDialogsService dialogsService)
 		{
 			_audioDownloader = audioDownloader ?? throw new ArgumentNullException(nameof(audioDownloader));
+			_dialogsService = dialogsService ?? throw new ArgumentNullException(nameof(dialogsService));
 			_invalidFileNameChars = Path.GetInvalidFileNameChars();
 
 			DownloadCommand = new RelayCommand(OnDownload);
 			CancelCommand = new RelayCommand(OnCancel);
+			ChooseMP3Command = new RelayCommand(OnChooseMP3);
+			MP3UtilitiesCommand = new RelayCommand(OnMP3Utilities);
 		}
 
 		private async void OnDownload()
@@ -59,7 +65,7 @@ namespace AudioDownloader.WpfClient
 				}
 			};
 
-			var errors = new List<string>();
+			var errors = new HashSet<string>();
 			MediaDownloadResponse response = MediaDownloadResponse.Cancelled();
 
 			for (int i = 0; i < _config.Get<int>(ConfigurationKeys.DownloadRetryCount); i++)
@@ -117,6 +123,27 @@ namespace AudioDownloader.WpfClient
 			HasDownloaded = false;
 			SongTitle = null;
 			_callbackCounter = 0;
+		}
+
+		private void OnChooseMP3()
+		{
+			var mp3File = _dialogsService.ChooseFile(_localizer[LocalizationKeys.SourceDefinition_ChooseMP3Title], null, ("MP3 file", $"*{MP3AudioSplitter.Mp3Extension}"));
+
+			if (mp3File == null) return;
+
+			_windowService.ChangePage<AudioSplitDefinitionPageViewModel>(new MediaDownloadResponse
+			{
+				File = new FileInfo(mp3File),
+				Data = new MediaData
+				{
+					Title = Path.GetFileNameWithoutExtension(mp3File)
+				}
+			});
+		}
+
+		private void OnMP3Utilities()
+		{
+			_windowService.ChangePage<MP3UtilitiesPageViewModel>();
 		}
 
 		private void DataCallback(MediaData mediaInfo)

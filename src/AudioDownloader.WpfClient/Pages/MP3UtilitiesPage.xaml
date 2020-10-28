@@ -1,0 +1,24 @@
+﻿<utils:BasePage x:Class="AudioDownloader.WpfClient.MP3UtilitiesPage"
+                x:TypeArguments="local:MP3UtilitiesPageViewModel"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls"
+                xmlns:local="clr-namespace:AudioDownloader.WpfClient"
+                xmlns:utils="clr-namespace:Braco.Utilities.Wpf;assembly=Braco.Utilities.Wpf">
+	<controls:BracoGrid Rows="2xAuto" SpacedRows="AroundAndBetween" Width="800">
+		<controls:InputField Grid.Row="1" Label="Bulk album set">
+			<StackPanel>
+				<TextBox Tag="Album Name" Text="{utils:TwoWayBinding AlbumName}" />
+
+				<Button Command="{Binding ChooseAlbumDirectoryCommand}"
+				        Content="Pick directory"
+				        IsEnabled="{Binding AlbumName, Converter={local:StringToBoolConverter}}"
+				        Style="{StaticResource ShadowButton}" />
+			</StackPanel>
+		</controls:InputField>
+
+		<controls:InputField Grid.Row="3" Label="Bulk author and title set">
+			<Button Command="{Binding ChooseAuthorAndTitleDirectoryCommand}" Content="Pick directory" Style="{StaticResource ShadowButton}" />
+		</controls:InputField>
+	</controls:BracoGrid>
+</utils:BasePage>

@@ -10,5 +10,8 @@
 	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_DownloadingLabel}">Downloading</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ConvertingLabel}">is being converted to MP3</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_CancellationProcessError}">Couldn't cancel the download process: {0}</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ChooseMP3Button}">Choose MP3 File</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ChooseMP3Title}">Choose MP3 file which you want to cut</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_MP3UtilitiesButton}">MP3 file utilities</system:String>
 
 </ResourceDictionary>

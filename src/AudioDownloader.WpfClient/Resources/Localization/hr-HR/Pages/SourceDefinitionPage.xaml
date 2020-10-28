@@ -10,5 +10,8 @@
 	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_DownloadingLabel}">Preuzimam</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ConvertingLabel}">se prebacuje u MP3</system:String>
 	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_CancellationProcessError}">Dogodila se greška pri prekidu preuzimanja: {0}</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ChooseMP3Button}">Odaberi MP3 datoteku</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_ChooseMP3Title}">Odaberite MP3 datoteku koju želite izrezati</system:String>
+	<system:String x:Key="{x:Static local:LocalizationKeys.SourceDefinition_MP3UtilitiesButton}">Rad s MP3 datotekama</system:String>
 
 </ResourceDictionary>

@@ -15,5 +15,11 @@
 		public const string SourceDefinition_ConvertingLabel = nameof(SourceDefinition_ConvertingLabel);
 
 		public const string SourceDefinition_CancellationProcessError = nameof(SourceDefinition_CancellationProcessError);
+
+		public const string SourceDefinition_ChooseMP3Button = nameof(SourceDefinition_ChooseMP3Button);
+
+		public const string SourceDefinition_ChooseMP3Title = nameof(SourceDefinition_ChooseMP3Title);
+
+		public const string SourceDefinition_MP3UtilitiesButton = nameof(SourceDefinition_MP3UtilitiesButton);
 	}
 }
