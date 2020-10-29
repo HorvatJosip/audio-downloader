@@ -35,7 +35,7 @@ namespace AudioDownloader.WpfClient
 			Directory.EnumerateFiles(directory, $"*{MP3AudioSplitter.Mp3Extension}", SearchOption.AllDirectories).ForEach(mp3File =>
 			{
 				var tagLibFile = TagLib.File.Create(mp3File);
-				tagLibFile.Tag.Album = AlbumName.IsNotNullOrEmpty() ? AlbumName : Path.GetDirectoryName(mp3File);
+				tagLibFile.Tag.Album = AlbumName.IsNotNullOrEmpty() ? AlbumName : new FileInfo(mp3File).Directory.Name;
 				tagLibFile.Save();
 			});
 
