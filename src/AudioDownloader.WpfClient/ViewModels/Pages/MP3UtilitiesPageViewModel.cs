@@ -14,7 +14,9 @@ namespace AudioDownloader.WpfClient
 	{
 		private readonly IChooserDialogsService _dialogsService;
 
+		public bool SetFirstAuthorAsAlbumAuthor { get; set; }
 		public string AlbumName { get; set; }
+
 		public ICommand ChooseAlbumDirectoryCommand { get; set; }
 		public ICommand ChooseAuthorAndTitleDirectoryCommand { get; set; }
 
@@ -68,7 +70,12 @@ namespace AudioDownloader.WpfClient
 					var artists = info[0].Trim().Split('&').Select(a => a.Trim()).ToArray();
 
 					tagLibFile.Tag.AlbumArtists = null;
-					tagLibFile.Tag.AlbumArtists = new[] { artists[0] };
+
+					if (SetFirstAuthorAsAlbumAuthor)
+					{
+						tagLibFile.Tag.AlbumArtists = new[] { artists[0] };
+					}
+
 					tagLibFile.Tag.Performers = null;
 					tagLibFile.Tag.Performers = artists;
 				}
