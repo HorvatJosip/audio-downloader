@@ -65,9 +65,12 @@ namespace AudioDownloader.WpfClient
 				else
 				{
 					title = info[1].Trim();
+					var artists = info[0].Trim().Split('&').Select(a => a.Trim()).ToArray();
 
 					tagLibFile.Tag.AlbumArtists = null;
-					tagLibFile.Tag.AlbumArtists = info[0].Trim().Split('&').Select(a => a.Trim()).ToArray();
+					tagLibFile.Tag.AlbumArtists = new[] { artists[0] };
+					tagLibFile.Tag.Performers = null;
+					tagLibFile.Tag.Performers = artists;
 				}
 
 				tagLibFile.Tag.Title = title;
