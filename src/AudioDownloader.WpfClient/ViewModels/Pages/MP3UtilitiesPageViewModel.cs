@@ -9,6 +9,7 @@ using System.Windows.Input;
 
 namespace AudioDownloader.WpfClient
 {
+	[Page(AllowGoingToPreviousPage = true)]
 	public class MP3UtilitiesPageViewModel : PageViewModel
 	{
 		private readonly IChooserDialogsService _dialogsService;
@@ -34,11 +35,11 @@ namespace AudioDownloader.WpfClient
 			Directory.EnumerateFiles(directory, $"*{MP3AudioSplitter.Mp3Extension}", SearchOption.AllDirectories).ForEach(mp3File =>
 			{
 				var tagLibFile = TagLib.File.Create(mp3File);
-				tagLibFile.Tag.Album = AlbumName;
+				tagLibFile.Tag.Album = AlbumName.IsNotNullOrEmpty() ? AlbumName : Path.GetDirectoryName(mp3File);
 				tagLibFile.Save();
 			});
 
-			ShowInfoBox(InfoBoxType.Success, $"Successfully set album ({AlbumName}) to files within the given directory!");
+			ShowInfoBox(InfoBoxType.Success, $"Successfully set album {(AlbumName.IsNotNullOrEmpty() ? $"({AlbumName}) " : "")}to files within the given directory!");
 		}
 
 		private void OnChooseAuthorAndTitleDirectory()
@@ -52,13 +53,23 @@ namespace AudioDownloader.WpfClient
 				var info = Path
 					.GetFileNameWithoutExtension(mp3File)
 					.Split(AudioSplitDefinitionPageViewModel.TitleSeparator);
-				var author = info[0].Trim();
-				var title = info[1].Trim();
 
 				var tagLibFile = TagLib.File.Create(mp3File);
 
-				tagLibFile.Tag.AlbumArtists = null;
-				tagLibFile.Tag.AlbumArtists = author.Split('&').Select(a => a.Trim()).ToArray();
+				string title;
+
+				if (info.Length == 1)
+				{
+					title = info[0].Trim();
+				}
+				else
+				{
+					title = info[1].Trim();
+
+					tagLibFile.Tag.AlbumArtists = null;
+					tagLibFile.Tag.AlbumArtists = info[0].Trim().Split('&').Select(a => a.Trim()).ToArray();
+				}
+
 				tagLibFile.Tag.Title = title;
 				tagLibFile.Save();
 			});

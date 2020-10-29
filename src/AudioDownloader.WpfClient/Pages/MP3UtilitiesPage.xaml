@@ -5,20 +5,17 @@
                 xmlns:controls="clr-namespace:Braco.Utilities.Wpf.Controls;assembly=Braco.Utilities.Wpf.Controls"
                 xmlns:local="clr-namespace:AudioDownloader.WpfClient"
                 xmlns:utils="clr-namespace:Braco.Utilities.Wpf;assembly=Braco.Utilities.Wpf">
-	<controls:BracoGrid Rows="2xAuto" SpacedRows="AroundAndBetween" Width="800">
+	<controls:BracoGrid Width="800" Rows="2xAuto" SpacedRows="AroundAndBetween">
 		<controls:InputField Grid.Row="1" Label="Bulk album set">
 			<StackPanel>
-				<TextBox Tag="Album Name" Text="{utils:TwoWayBinding AlbumName}" />
+				<TextBox Tag="Album Name (leave blank to use directory name)" Text="{utils:TwoWayBinding AlbumName}" />
 
-				<Button Command="{Binding ChooseAlbumDirectoryCommand}"
-				        Content="Pick directory"
-				        IsEnabled="{Binding AlbumName, Converter={local:StringToBoolConverter}}"
-				        Style="{StaticResource ShadowButton}" />
+				<Button Command="{Binding ChooseAlbumDirectoryCommand}" Content="Set Album" Style="{StaticResource ShadowButton}" />
 			</StackPanel>
 		</controls:InputField>
 
 		<controls:InputField Grid.Row="3" Label="Bulk author and title set">
-			<Button Command="{Binding ChooseAuthorAndTitleDirectoryCommand}" Content="Pick directory" Style="{StaticResource ShadowButton}" />
+			<Button Command="{Binding ChooseAuthorAndTitleDirectoryCommand}" Content="Set Author and Title" Style="{StaticResource ShadowButton}" />
 		</controls:InputField>
 	</controls:BracoGrid>
 </utils:BasePage>
